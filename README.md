@@ -1,6 +1,6 @@
-# EclipX MC - Official Store & Landing Page
+# Official Store & Landing Page
 
-Welcome to the official web repository for **EclipX MC**. This project is a modern, visually immersive landing page and store frontend designed for the EclipX Minecraft server.
+Welcome to the official web repository for this modern store frontend. This project is a polished landing page and shopping experience designed for gaming communities and online stores.
 
 ## 🚀 Features
 
@@ -58,6 +58,6 @@ A modern web browser (Chrome, Firefox, Edge, Safari).
 
 For server-related support or questions about the store:
 - **Discord:** [Join Our Community](https://discord.gg/pvc3CJpKaY)
-- **Email:** [contact@eclipxmc.net](mailto:contact@eclipxmc.net)
+- **Email:** [contact@example.com](mailto:contact@example.com)
 
 ---

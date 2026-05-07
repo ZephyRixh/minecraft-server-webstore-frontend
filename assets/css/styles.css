@@ -1,6 +1,6 @@
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   ECLIPX MC – TEBEX STORE THEME
-   Black & White Minimal · Vengence-Inspired
+   Minimal dark theme stylesheet
+   Clean monochrome interface
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 @import url('https://fonts.googleapis.com/css2?family=Agoma:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -140,7 +140,7 @@ section { padding: 50px 5vw; position: relative; }
   padding: 1px;
   background: linear-gradient(-75deg, transparent 30%, var(--shine) 50%, transparent 70%);
   background-size: 200% 100%;
-  animation: vengenceBorder 2.5s linear infinite;
+  animation: shimmerBorder 2.5s linear infinite;
   
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -148,7 +148,7 @@ section { padding: 50px 5vw; position: relative; }
   pointer-events: none;
   z-index: 1;
 }
-@keyframes vengenceBorder {
+@keyframes shimmerBorder {
   0% { background-position: 200% 0; opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
@@ -227,7 +227,7 @@ section { padding: 50px 5vw; position: relative; }
   opacity: 1;
 }
 
-/* ━━ SPOTLIGHT NAVBAR (VENGEANCE UI) ━━ */
+/* ━━ SPOTLIGHT NAVBAR ━━ */
 .spotlight-nav-wrapper {
   position: fixed;
   top: 24px;

@@ -6,7 +6,7 @@ const config = {
     : 'https://your-backend-url.railway.app',
 
   // App Configuration
-  APP_NAME: 'EclipX MC Store',
+  APP_NAME: 'Store Frontend',
   VERSION: '1.0.0'
 };
 

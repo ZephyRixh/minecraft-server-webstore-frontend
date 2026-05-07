@@ -1,5 +1,5 @@
 @echo off
-echo Starting EclipX MC Store - Full Stack Development Environment
+echo Starting Store Frontend - Full Stack Development Environment
 echo.
 echo This will start both the frontend (port 8000) and backend (port 3000) servers
 echo.

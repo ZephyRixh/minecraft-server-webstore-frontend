@@ -1,5 +1,5 @@
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   ECLIPX MC – JavaScript
+   Store Frontend JavaScript
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 // ━━ NAVBAR SCROLL ━━
@@ -362,7 +362,7 @@ function initCardTilt() {
   });
 }
 
-const CART_STORAGE_KEY = 'eclipxmc_cart';
+const CART_STORAGE_KEY = 'store_cart';
 
 function formatCurrency(amount) {
   return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
