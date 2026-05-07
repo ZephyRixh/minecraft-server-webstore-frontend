@@ -1,6 +1,6 @@
-# Official Store & Landing Page
+# Minecraft Server Webstore/Website [Frontend]
 
-Welcome to the official web repository for this modern store frontend. This project is a polished landing page and shopping experience designed for gaming communities and online stores.
+Welcome to the web repository for this modern store frontend. This project is a polished landing page and shopping experience designed for miecraft servers.
 
 ## 🚀 Features
 
@@ -34,6 +34,10 @@ A modern web browser (Chrome, Firefox, Edge, Safari).
 
 ## 🎨 Design Notes
 
-- **Colors:** Dominated by a dark theme with vibrant orange and red accents.
+- **Colors:** Dominated by a black & white theme, but modern, clean and glowing.
 - **Typography:** Uses `Ethnocentric` for headers and `Epic Pro` for stylized elements.
 - **Full Cross-Device Parity:** Navigation system and login features are fully consistent and functional across desktop, tablet, and mobile devices without compromise.
+
+## Support
+
+**Contact** - businesszephy07@gmail.com
