@@ -283,12 +283,19 @@ function initLoginSystem() {
     const user = localStorage.getItem('mcUser');
     const isBedrock = localStorage.getItem('isBedrock') === 'true';
     
+    // Always ensure the container is visible if there is a user
     if (user) {
-      if (loggedInActions) loggedInActions.style.display = 'flex';
+      if (loggedInActions) {
+        loggedInActions.classList.remove('hidden');
+        loggedInActions.style.display = 'flex';
+      }
       if (userNameDisplay) userNameDisplay.textContent = (isBedrock ? '.' : '') + user;
       if (userAvatar) userAvatar.src = `https://mc-heads.net/avatar/${user}/24`;
     } else {
-      if (loggedInActions) loggedInActions.style.display = 'none';
+      if (loggedInActions) {
+        loggedInActions.classList.add('hidden');
+        loggedInActions.style.display = 'none';
+      }
     }
   };
 

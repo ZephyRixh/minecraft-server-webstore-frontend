@@ -399,7 +399,7 @@ section { padding: 50px 5vw; position: relative; }
 .hero-logo {
   width: clamp(260px, 32vw, 560px);
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   filter: drop-shadow(0 0 60px rgba(255,255,255,0.15));
   animation: heroFloat 7s ease-in-out infinite;
 }
