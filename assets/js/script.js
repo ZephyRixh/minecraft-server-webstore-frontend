@@ -94,13 +94,10 @@ const Router = {
       const anchor = e.target.closest('a');
       if (!anchor) return;
 
-      const href = anchor.getAttribute('href');
-      if (!href) return;
+const href = anchor.getAttribute('href');
+if (!href) return;
 
-      // Skip login button
-      if (anchor.id === 'loginBtn') return;
-
-      // Handle sidebar links specially
+// Handle sidebar links specially
       if (anchor.classList.contains('sidebar-link')) {
         e.preventDefault();
         const categoryPath = anchor.getAttribute('data-category-path');
@@ -208,108 +205,12 @@ const Router = {
   }
 };
 
-// ━━ LOGIN SYSTEM ━━
-let loginModalToggle = null;
-
-function initLoginSystem() {
-  const loginModal = document.getElementById('loginModal');
-  const closeLogin = document.getElementById('closeLogin');
-  const loginForm = document.getElementById('loginForm');
-  const loginOverlay = loginModal?.querySelector('.modal-overlay');
-  
-  const loggedInActions = document.getElementById('loggedInActions');
-  const userNameDisplay = document.getElementById('userNameDisplay');
-  const userAvatar = document.getElementById('userAvatar');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  const logoutModal = document.getElementById('logoutModal');
-  const confirmLogout = document.getElementById('confirmLogout');
-  const cancelLogout = document.getElementById('cancelLogout');
-  const logoutOverlay = logoutModal?.querySelector('.modal-overlay');
-
-  if (!loginModal || !logoutModal) return;
-
-  const toggleModal = (modal, show) => {
-    if (!modal) return;
-    modal.classList.toggle('active', show);
-    document.body.style.overflow = show ? 'hidden' : '';
-    
-    // If showing login modal, check if we should show close button
-    if (modal.id === 'loginModal' && show) {
-      const user = localStorage.getItem('mcUser');
-      if (closeLogin) closeLogin.style.display = user ? 'block' : 'none';
-      if (loginOverlay) loginOverlay.style.pointerEvents = user ? 'auto' : 'none';
-    }
-  };
-
-  loginModalToggle = (show) => toggleModal(loginModal, show);
-
-  closeLogin?.addEventListener('click', () => toggleModal(loginModal, false));
-  loginOverlay?.addEventListener('click', () => {
-    const user = localStorage.getItem('mcUser');
-    if (user) toggleModal(loginModal, false);
-  });
-
-  logoutBtn?.addEventListener('click', () => {
-    toggleModal(logoutModal, true);
-  });
-
-  cancelLogout?.addEventListener('click', () => toggleModal(logoutModal, false));
-  logoutOverlay?.addEventListener('click', () => toggleModal(logoutModal, false));
-
-  confirmLogout?.addEventListener('click', () => {
-    localStorage.removeItem('mcUser');
-    localStorage.removeItem('isBedrock');
-    updateLoginUI();
-    toggleModal(logoutModal, false);
-    setTimeout(() => toggleModal(loginModal, true), 500);
-  });
-
-  loginForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const usernameInput = document.getElementById('mcUsername');
-    const bedrockToggle = document.getElementById('bedrockToggle');
-    
-    if (usernameInput && usernameInput.value.trim()) {
-      localStorage.setItem('mcUser', usernameInput.value.trim());
-      localStorage.setItem('isBedrock', bedrockToggle ? bedrockToggle.checked : false);
-      updateLoginUI();
-      toggleModal(loginModal, false);
-      loginForm.reset();
-    }
-  });
-
-  const updateLoginUI = () => {
-    const user = localStorage.getItem('mcUser');
-    const isBedrock = localStorage.getItem('isBedrock') === 'true';
-    
-    // Always ensure the container is visible if there is a user
-    if (user) {
-      if (loggedInActions) {
-        loggedInActions.classList.remove('hidden');
-        loggedInActions.style.display = 'flex';
-      }
-      if (userNameDisplay) userNameDisplay.textContent = (isBedrock ? '.' : '') + user;
-      if (userAvatar) userAvatar.src = `https://mc-heads.net/avatar/${user}/24`;
-    } else {
-      if (loggedInActions) {
-        loggedInActions.classList.add('hidden');
-        loggedInActions.style.display = 'none';
-      }
-    }
-  };
-
-  // Initial Check
-  updateLoginUI();
-}
-
 // ━━ PRELOADER ━━
 function initPreloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) {
-    // If no preloader, init router and login immediately
+    // If no preloader, init router immediately
     Router.init();
-    checkAutoLogin();
     return;
   }
 
@@ -320,7 +221,6 @@ function initPreloader() {
     setTimeout(() => {
       preloader.remove();
       Router.init();
-      checkAutoLogin();
     }, 1000);
   };
 
@@ -333,13 +233,6 @@ function initPreloader() {
   setTimeout(() => {
     if (preloader.parentElement) finishPreloader();
   }, 5000);
-}
-
-function checkAutoLogin() {
-  const user = localStorage.getItem('mcUser');
-  if (!user && typeof loginModalToggle === 'function') {
-    loginModalToggle(true);
-  }
 }
 
 // ━━ SUBTLE CARD TILT & GLOW ━━
@@ -756,7 +649,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initIPCopy();
   initPreloader();
   initCardTilt();
-  initLoginSystem();
   initCartSystem();
   initProductSearch();
   initProductModal();

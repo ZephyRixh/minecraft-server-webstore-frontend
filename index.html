@@ -47,72 +47,13 @@
         <li class="spotlight-nav-item"><a href="index.html#policies" class="spotlight-nav-link" data-index="2"><i class="ti ti-file-text"></i>Policies</a></li>
       </ul>
       <div class="nav-actions">
-        <div class="user-status-card" id="userStatusCard">
-          <div class="logged-in-actions" id="loggedInActions">
-            <div class="user-info">
-              <img src="" alt="Avatar" id="userAvatar" class="user-avatar-small">
-              <span id="userNameDisplay" class="user-name-text"></span>
-            </div>
-            <button id="logoutBtn" class="logout-btn-mini" title="Logout">
-              <i class="ti ti-logout"></i>
-            </button>
-          </div>
-        </div>
       </div>
       <div class="spotlight-nav-light"></div>
       <div class="spotlight-nav-ambience"></div>
     </nav>
   </div>
 
-  <!-- LOGIN MODAL -->
-  <div id="loginModal" class="modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content login-modal">
-      <button class="modal-close" id="closeLogin">&times;</button>
-      <div class="login-header">
-        <img src="assets/images/favicon_io/android-chrome-512x512.png" alt="Logo" class="login-logo">
-        <h2>Store Login</h2>
-        <p>Enter your Minecraft username to continue</p>
-      </div>
-      <form id="loginForm" class="login-form">
-        <div class="input-group">
-          <label for="mcUsername"><i class="ti ti-user"></i> Username</label>
-          <input type="text" id="mcUsername" placeholder="Enter Username..." required autocomplete="off">
-        </div>
-        <div class="toggle-group">
-          <div class="toggle-info">
-            <span class="toggle-label"><i class="ti ti-device-gamepad-2"></i> Bedrock Edition</span>
-            <span class="toggle-sub">Enable if playing on Bedrock</span>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="bedrockToggle" aria-label="Bedrock Edition">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <button type="submit" class="btn-primary btn-block">Connect</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- LOGOUT CONFIRM MODAL -->
-  <div id="logoutModal" class="modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content logout-modal">
-      <div class="logout-header">
-        <div class="warning-icon-wrapper">
-          <i class="ti ti-alert-triangle icon-large"></i>
-        </div>
-        <h2>Confirm Logout</h2>
-        <p>Are you sure you want to end your session? You will need to login again to access your account.</p>
-      </div>
-      <div class="modal-actions">
-        <button id="confirmLogout" class="btn-primary btn-logout-confirm">Logout</button>
-        <button id="cancelLogout" class="btn-cancel">Cancel</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- PRODUCT DETAIL MODAL -->
+<!-- PRODUCT DETAIL MODAL -->
   <div id="productModal" class="modal">
     <div class="modal-overlay"></div>
     <div class="modal-content product-modal">
