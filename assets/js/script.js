@@ -561,30 +561,6 @@ function initLiveActivity() {
       setTimeout(() => toast.remove(), 600);
     }, 6000);
   };
-
-  // Poll backend for new orders
-  const lastProcessedIds = new Set();
-  const pollOrders = async () => {
-    try {
-      const response = await fetch(`${window.CONFIG.API_BASE_URL}/api/orders/recent`);
-      const orders = await response.json();
-      
-      orders.forEach(order => {
-        if (!lastProcessedIds.has(order.id)) {
-          lastProcessedIds.add(order.id);
-          // Only show notification if it was created recently (e.g., within 1 minute)
-          if (new Date(order.createdAt) > new Date(Date.now() - 60000)) {
-            showNotification(order);
-          }
-        }
-      });
-    } catch (err) {
-      console.error('Notification poll error:', err);
-    }
-    setTimeout(pollOrders, 15000); // Poll every 15 seconds
-  };
-
-  pollOrders();
 }
 
 function initServerStatus() {
