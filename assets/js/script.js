@@ -6,15 +6,6 @@ function escapeHTML(str) {
   return div.innerHTML;
 }
 
-// NAVBAR SCROLL
-function initNavbarScroll() {
-  const navbar = document.querySelector('.navbar');
-  if (!navbar) return;
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-}
-
 // FAQ ACCORDION
 function initFAQAccordion() {
   document.querySelectorAll('.faq-item').forEach(item => {
@@ -539,72 +530,6 @@ function initProductModal() {
   });
 }
 
-function initLiveActivity() {
-  const container = document.createElement('div');
-  container.className = 'live-activity-container';
-  document.body.appendChild(container);
-
-  const showNotification = (order) => {
-    // Basic item parsing for notification text
-    const firstItem = order.items && order.items.length > 0 ? order.items[0].title : 'a package';
-    
-    const toast = document.createElement('div');
-    toast.className = 'purchase-toast';
-    toast.innerHTML = `
-      <img src="https://mc-heads.net/avatar/${encodeURIComponent(order.User.username)}/40" alt="${escapeHTML(order.User.username)}" class="purchase-toast-avatar">
-      <div class="purchase-toast-content">
-        <span class="purchase-toast-user">${escapeHTML(order.User.username)}</span>
-        <span class="purchase-toast-text">Just purchased <strong>${escapeHTML(firstItem)}</strong></span>
-        <span class="purchase-toast-time">Just now</span>
-      </div>
-    `;
-
-    container.appendChild(toast);
-    
-    setTimeout(() => toast.classList.add('active'), 100);
-    setTimeout(() => {
-      toast.classList.remove('active');
-      setTimeout(() => toast.remove(), 600);
-    }, 6000);
-  };
-}
-
-function initServerStatus() {
-  const playerCountEl = document.getElementById('playerCount');
-  const statusIndicator = document.querySelector('.status-indicator');
-  if (!playerCountEl || statusIndicator?.classList.contains('offline')) return;
-
-  let count = parseInt(playerCountEl.textContent);
-  
-  const updateCount = () => {
-    const change = Math.floor(Math.random() * 5) - 2; // -2 to +2
-    count = Math.max(150, Math.min(500, count + change));
-    playerCountEl.textContent = count;
-    
-    setTimeout(updateCount, 5000 + Math.random() * 5000);
-  };
-
-  setTimeout(updateCount, 3000);
-}
-
-function initLightbox() {
-  window.openLightbox = (src) => {
-    const lightbox = document.getElementById('lightbox');
-    const img = document.getElementById('lightboxImg');
-    if (!lightbox || !img) return;
-    img.src = src;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeLightbox = () => {
-    const lightbox = document.getElementById('lightbox');
-    if (!lightbox) return;
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  };
-}
-
 function initFeaturedCards() {
   document.querySelectorAll('[data-featured-category]').forEach(card => {
     card.addEventListener('click', () => {
@@ -634,7 +559,6 @@ function initBackToTop() {
 
 // INIT
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbarScroll();
   initFAQAccordion();
   initScrollReveal();
   initHeroParticles();
@@ -644,8 +568,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCartSystem();
   initProductSearch();
   initProductModal();
-  initLiveActivity();
-  initServerStatus();
   initFeaturedCards();
   initBackToTop();
 });

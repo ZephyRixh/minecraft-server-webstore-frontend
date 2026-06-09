@@ -8,7 +8,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' https://mc-heads.net https://cdn.pixabay.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' https://mc-heads.net https://cdn.pixabay.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self';">
 
   <!-- Open Graph -->
   <meta property="og:title" content="EclipX MC" />
@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" />
 
   <title>EclipX MC</title>
-  <base href="./">
+  <base href="/">
   <!-- FAVICONS -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
@@ -48,7 +48,7 @@
       <ul class="spotlight-nav-list">
         <li class="spotlight-nav-item"><a href="#" class="spotlight-nav-link active" data-index="0"><i class="ti ti-home"></i>Home</a></li>
         <li class="spotlight-nav-item"><a href="#store" class="spotlight-nav-link" data-index="1"><i class="ti ti-shopping-cart"></i>Store</a></li>
-        <li class="spotlight-nav-item"><a href="index.html#policies" class="spotlight-nav-link" data-index="2"><i class="ti ti-file-text"></i>Policies</a></li>
+        <li class="spotlight-nav-item"><a href="#policies" class="spotlight-nav-link" data-index="2"><i class="ti ti-file-text"></i>Policies</a></li>
       </ul>
       <div class="spotlight-nav-light"></div>
       <div class="spotlight-nav-ambience"></div>
@@ -111,7 +111,7 @@
         <p>Welcome to EclipX MC — the ultimate competitive Minecraft experience. Explore our store for ranks, keys, and more.</p>
       </div>
 
-      <div class="policies-header reveal">
+      <div id="policies" class="policies-header reveal">
         <h2>Our Policies</h2>
         <p class="section-sub">Important information about your purchases</p>
       </div>
@@ -168,10 +168,7 @@
     </div>
   </section>
 
-  <!-- GAMEMODES -->
-  <section class="gamemodes" id="gamemodes">
-    <!-- ... (existing gamemodes content) ... -->
-  </section>
+
 
   <div class="section-divider"></div>
 
