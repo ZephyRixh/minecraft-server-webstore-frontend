@@ -343,18 +343,11 @@ section { padding: 50px 5vw; position: relative; }
 }
 .hero-content { position: relative; z-index: 3; text-align: center; padding: 20px; }
 
-.hero-logo-wrapper {
-  width: clamp(260px, 32vw, 560px);
-  height: clamp(260px, 32vw, 560px);
-  margin: 0 auto;
-  overflow: hidden;
-}
 .hero-logo {
   display: block;
-  width: 150%;
-  height: 150%;
-  margin: -25% -25%;
-  object-fit: cover;
+  width: clamp(260px, 32vw, 560px);
+  height: auto;
+  margin: 0 auto;
   filter: drop-shadow(0 0 60px rgba(255,255,255,0.15));
   animation: heroFloat 7s ease-in-out infinite;
 }
