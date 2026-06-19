@@ -11,38 +11,33 @@ function initFAQAccordion() {
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-question');
     if (!q) return;
-    q.addEventListener('click', () => {
+    const toggle = () => {
       document.querySelectorAll('.faq-item').forEach(o => {
-        if (o !== item) o.classList.remove('active');
+        if (o !== item) {
+          o.classList.remove('active');
+          const otherQ = o.querySelector('.faq-question');
+          if (otherQ) otherQ.setAttribute('aria-expanded', 'false');
+        }
       });
-      item.classList.toggle('active');
+      const isActive = item.classList.toggle('active');
+      q.setAttribute('aria-expanded', isActive);
+    };
+    q.addEventListener('click', toggle);
+    q.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
     });
   });
 }
 
 // SCROLL REVEAL
-function initScrollReveal() {
-  const els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  els.forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 5) * 70}ms`;
-    observer.observe(el);
-  });
-}
-
 // HERO PARTICLES
 function initHeroParticles() {
   const container = document.querySelector('.hero-particles');
   if (!container) return;
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 10; i++) {
     const p = document.createElement('div');
     p.classList.add('hero-particle');
     p.style.left = Math.random() * 100 + '%';
@@ -235,7 +230,7 @@ const Router = {
         targetPath = '/';
       }
       
-      const isActive = path === targetPath || (path === '/store' && targetPath === '/store') || (path === '/vote' && targetPath === '/vote') || (path === '/faq' && targetPath === '/faq') || (path === '/policies' && targetPath === '/policies');
+      const isActive = path === targetPath;
       link.classList.toggle('active', isActive);
       if (isActive) {
         updateAmbience(parseInt(link.getAttribute('data-index')));
@@ -274,29 +269,9 @@ function initPreloader() {
   }, 5000);
 }
 
-// ━━ SUBTLE CARD TILT & GLOW ━━
+// ━━ SUBTLE CARD GLOW ━━
 function initCardTilt() {
-  document.querySelectorAll('.card, .cart-item').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-
-      if (card.classList.contains('card')) {
-        const centerX = x / rect.width - 0.5;
-        const centerY = y / rect.height - 0.5;
-        card.style.transform = `perspective(900px) rotateY(${centerX * 3}deg) rotateX(${-centerY * 3}deg) translateY(-4px)`;
-      }
-    });
-    card.addEventListener('mouseleave', () => {
-      if (card.classList.contains('card')) {
-        card.style.transform = '';
-      }
-    });
-  });
+  // kept for compatibility — glow is now CSS-only
 }
 
 const CART_STORAGE_KEY = 'store_cart';
@@ -650,7 +625,6 @@ function initBackToTop() {
 // INIT
 document.addEventListener('DOMContentLoaded', () => {
   initFAQAccordion();
-  initScrollReveal();
   initHeroParticles();
   initIPCopy();
   initFlipFade();
@@ -662,6 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCurrencySwitcher();
   updateAllDisplayedPrices();
 });
+
 
 // STORE PREVIEW TABS
 function switchStoreTab(el, category, updateUrl = true) {
@@ -757,10 +732,13 @@ function switchStoreTab(el, category, updateUrl = true) {
   }
 
   window.updateAmbience = function(index) {
+    if (getItemCenter(index) === null) return;
+    activeIndex = index;
+    springToTarget();
     const targetX = getItemCenter(index);
-    if (targetX === null) return;
-    ambienceX = targetX;
-    nav.style.setProperty('--ambience-x', `${targetX}px`);
+    if (targetX !== null) {
+      springSpotlightTo(targetX);
+    }
   };
 
   function springToTarget() {
@@ -853,3 +831,57 @@ function switchStoreTab(el, category, updateUrl = true) {
     }
   });
 })();
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   UX/UI ENHANCEMENTS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+
+function initMobileMenu() {
+  const btn = document.getElementById('mobileMenuBtn');
+  const overlay = document.getElementById('mobileNavOverlay');
+  const backdrop = document.getElementById('mobileNavBackdrop');
+  const links = overlay?.querySelectorAll('.mobile-nav-link');
+  if (!btn || !overlay) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.classList.toggle('active');
+    overlay.classList.toggle('active', isOpen);
+    overlay.setAttribute('aria-hidden', !isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  function closeMenu() {
+    btn.classList.remove('active');
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  backdrop?.addEventListener('click', closeMenu);
+
+  links?.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+}
+
+function initStatusIPCopy() {
+  document.querySelectorAll('.status-ip-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ip = btn.getAttribute('data-ip');
+      navigator.clipboard.writeText(ip).then(() => {
+        btn.classList.add('copied');
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.className = 'ti ti-check';
+          setTimeout(() => {
+            icon.className = 'ti ti-copy';
+            btn.classList.remove('copied');
+          }, 2000);
+        }
+      });
+    });
+  });
+}

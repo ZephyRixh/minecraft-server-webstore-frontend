@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Welcome to the official Eclipx MC store. Browse ranks, Epix Dust, keys, and more to enhance your gameplay experience." />
-  <meta name="keywords" content="store, gaming, landing page, online shop, gaming store" />
+  <meta name="keywords" content="Minecraft, server, OneBlock, EclipxMC, gaming, store" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' https://mc-heads.net https://cdn.pixabay.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' https://mc-heads.net https://cdn.pixabay.com data:; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://api.mcsrvstat.us; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self';">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Eclipx MC" />
@@ -39,7 +39,7 @@
 
   <!-- SPOTLIGHT NAVBAR -->
   <div class="spotlight-nav-wrapper">
-    <nav class="spotlight-nav" id="spotlightNav">
+    <nav class="spotlight-nav" id="spotlightNav" role="navigation" aria-label="Main navigation">
       <ul class="spotlight-nav-list">
         <li><a href="#" class="spotlight-link active" data-index="0"><i class="ti ti-home"></i> Home</a></li>
         <li><a href="#store" class="spotlight-link" data-index="1"><i class="ti ti-shopping-cart"></i> Store</a></li>
@@ -50,7 +50,24 @@
     </nav>
   </div>
 
-<!-- PRODUCT DETAIL MODAL -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#" class="mobile-nav-link active" data-section="hero"><i class="ti ti-home"></i> Home</a>
+      <a href="#store" class="mobile-nav-link" data-section="store"><i class="ti ti-shopping-cart"></i> Store</a>
+      <a href="#policies" class="mobile-nav-link" data-section="policies"><i class="ti ti-file-text"></i> Policies</a>
+      <a href="https://dsc.gg/eclipxmc/" class="mobile-nav-link"><i class="ti ti-brand-discord"></i> Discord</a>
+    </nav>
+  </div>
+
+  <!-- PRODUCT DETAIL MODAL -->
   <div id="productModal" class="modal">
     <div class="modal-overlay"></div>
     <div class="modal-content product-modal">
@@ -74,24 +91,19 @@
             </div>
           </div>
           <div class="product-modal-actions">
-            <button class="btn-primary" id="modalAddToCart">
-              Add to cart
-            </button>
+            <button class="btn-primary" id="modalAddToCart">Add to cart</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- GRADIENT BLUR OVERLAY -->
-  <div class="gradient-blur"></div>
-
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-particles"></div>
+  <section class="hero" id="hero">
+    <div class="hero-particles" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <img src="assets/images/eclipxmc_logo.png" alt="Site Logo" class="hero-logo" />
+      <img src="assets/images/eclipxmc_logo.png" alt="Eclipx MC Logo" class="hero-logo" />
       <p class="hero-subtitle flip-fade-wrap"></p>
       <div class="hero-cta">
         <a href="#store" class="rg-button">
@@ -100,28 +112,29 @@
           <span class="rg-label"><i class="ti ti-shopping-cart"></i> Visit Store</span>
         </a>
         <a href="https://dsc.gg/eclipxmc/" class="candy-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" fill="currentColor" width="16" height="12"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" fill="currentColor" width="16" height="12" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
           Join Discord
         </a>
       </div>
+
+
       <div class="ip-copy reveal" id="ipCopy" title="Click to copy IP">
         <span class="ip-copy-label">Server Address</span>
         <span class="ip-copy-value">play.eclipxmc.fun</span>
-        <i class="ti ti-copy ip-copy-icon"></i>
+        <i class="ti ti-copy ip-copy-icon" aria-hidden="true"></i>
       </div>
     </div>
   </section>
 
-  <!-- WELCOME SECTION -->
+  <!-- WELCOME / ABOUT SECTION -->
   <section class="welcome-section" id="welcome" style="position:relative;overflow:hidden;">
-    <div class="dots-bg"></div>
+    <div class="dots-bg" aria-hidden="true"></div>
     <div class="welcome-container reveal">
       <div class="welcome-header">
-        <h1 class="welcome-title">WELCOME</h1>
+        <h1 class="welcome-title">Welcome</h1>
       </div>
-      
       <div class="welcome-body">
-        <p>Welcome to Eclipx MC — the ultimate competitive Minecraft experience. Explore our store for ranks, keys, and more.</p>
+        <p>Welcome to Eclipx MC — the ultimate competitive Minecraft experience. Explore our store for ranks, keys, and more. Join our Discord to connect with the community and stay up to date with the latest events and updates.</p>
       </div>
 
       <div id="policies" class="policies-header reveal">
@@ -142,14 +155,10 @@
           <p>As all purchases are processed manually through Discord, refunds are handled on a case-by-case basis. If you experience any issues, please contact us via Discord.</p>
         </div>
       </div>
-
-
     </div>
   </section>
 
-
-
-  <div class="section-divider"></div>
+  <div class="section-divider" role="separator" aria-hidden="true"></div>
 
   <!-- VOTE SECTION -->
   <section class="vote-section" id="vote">
@@ -157,65 +166,56 @@
       <div class="vote-content reveal">
         <h2>Support the Server</h2>
         <p class="section-sub">Vote daily to receive free in-game rewards!</p>
-        
-        <div class="vote-layout">
-          <div class="vote-links">
-            <a href="#" class="vote-card card">
-              <span class="vote-number">01</span>
-              <div class="vote-details">
-                <strong>Vote 1</strong>
-                <span>Vote on Site #1</span>
-              </div>
-              <i class="ti ti-external-link"></i>
-            </a>
-            <a href="#" class="vote-card card">
-              <span class="vote-number">02</span>
-              <div class="vote-details">
-                <strong>Vote 2</strong>
-                <span>Vote on Site #2</span>
-              </div>
-              <i class="ti ti-external-link"></i>
-            </a>
-            <a href="#" class="vote-card card">
-              <span class="vote-number">03</span>
-              <div class="vote-details">
-                <strong>Vote 3</strong>
-                <span>Vote on Site #3</span>
-              </div>
-              <i class="ti ti-external-link"></i>
-            </a>
-          </div>
 
-          <div class="vote-rewards card">
-            <div class="rewards-header">
+        <div class="vote-layout">
+          <div class="vote-benefits-card card">
+            <div class="vote-benefits-header">
               <i class="ti ti-gift"></i>
               <h3>Voting Rewards</h3>
             </div>
-            <ul class="rewards-list">
-              <li>
-                <div class="reward-icon"><i class="ti ti-key"></i></div>
-                <div class="reward-text">
-                  <strong>1x Vote Key</strong>
-                  <span>Open the Vote Crate</span>
-                </div>
-              </li>
+            <ul class="vote-benefits-list">
+              <li><i class="ti ti-key"></i> <span><strong>1x Vote Key</strong> — Open the Vote Crate for rare loot</span></li>
             </ul>
+          </div>
+          <div class="vote-links">
+            <a href="#" class="vote-card card" target="_blank" rel="noopener">
+              <span class="vote-number">01</span>
+              <div class="vote-details">
+                <strong>Vote on Site #1</strong>
+                <span>Get instant rewards</span>
+              </div>
+              <i class="ti ti-external-link"></i>
+            </a>
+            <a href="#" class="vote-card card" target="_blank" rel="noopener">
+              <span class="vote-number">02</span>
+              <div class="vote-details">
+                <strong>Vote on Site #2</strong>
+                <span>Get instant rewards</span>
+              </div>
+              <i class="ti ti-external-link"></i>
+            </a>
+            <a href="#" class="vote-card card" target="_blank" rel="noopener">
+              <span class="vote-number">03</span>
+              <div class="vote-details">
+                <strong>Vote on Site #3</strong>
+                <span>Get instant rewards</span>
+              </div>
+              <i class="ti ti-external-link"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="section-divider" role="separator" aria-hidden="true"></div>
 
   <!-- STORE SECTION PREVIEW -->
   <section class="store-section" id="store">
     <h2 class="reveal section-title-uppercase">Store</h2>
     <p class="section-sub reveal">Browse our packages and ranks</p>
-    
+
     <div class="store-container">
-      
-      <!-- SIDEBAR -->
       <aside class="store-sidebar reveal">
         <div class="sidebar-header">SELECT A CATEGORY</div>
         <nav class="sidebar-nav">
@@ -232,58 +232,48 @@
         </nav>
       </aside>
 
-      <!-- CONTENT -->
       <main class="store-content">
-        
-        <!-- SEARCH & FILTERS -->
         <div class="store-filters reveal">
           <div class="currency-switcher store-currency-switcher" id="currencySwitcher">
-            <button class="currency-switcher-btn">
+            <button class="currency-switcher-btn" type="button" aria-label="Switch currency">
               <span class="currency-switcher-current">INR</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </button>
             <div class="currency-switcher-dropdown">
-              <button class="currency-option active" data-currency="INR">INR</button>
-              <button class="currency-option" data-currency="USD">USD</button>
+              <button class="currency-option active" data-currency="INR" type="button">INR</button>
+              <button class="currency-option" data-currency="USD" type="button">USD</button>
             </div>
           </div>
         </div>
-        
-        <!-- FEATURED SECTION -->
+
         <div id="featured-section" class="featured-packages-wrapper reveal">
           <h3 class="featured-title">Featured Packages</h3>
           <div class="featured-grid">
-            <!-- EcliptiX Featured -->
-            <div class="featured-card card featured-card-ecliptix" data-featured-category="ranks">
+            <div class="featured-card card featured-card-ecliptix" data-featured-category="ranks" tabindex="0" role="button" aria-label="View Ranks">
               <div class="featured-card-badge">Best Seller</div>
-
               <div class="featured-card-info">
                 <h4>EcliptiX</h4>
                 <p>The ultimate rank — unlimited power awaits.</p>
-                <span class="featured-card-link">View Ranks <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <span class="featured-card-link">View Ranks <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
               </div>
             </div>
-            <!-- Epix Dust Featured -->
-            <div class="featured-card card featured-card-coin" data-featured-category="epix-dust">
+            <div class="featured-card card featured-card-coin" data-featured-category="epix-dust" tabindex="0" role="button" aria-label="View Epix Dust">
               <div class="featured-card-badge">Trending</div>
               <div class="featured-card-info">
                 <h4>Epix Dust Bundles</h4>
                 <p>Get the best value on LifeSteal Epix Dust.</p>
-                <span class="featured-card-link">View Epix Dust <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <span class="featured-card-link">View Epix Dust <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- CATEGORY HEADER (Visible when a category is selected) -->
-
-<div class="store-content-header reveal" id="store-category-header">
+        <div class="store-content-header reveal" id="store-category-header">
           <h1>Epix Dust [LifeSteal]</h1>
           <p>Get yourself some Epix Dust to get awesome keys & perks from the Epix Dust shop.<br><br>Note: You will receive this Epix Dust in LifeSteal Gamemode</p>
         </div>
 
         <div class="package-grid">
-          
           <!-- Rank 1: Prime -->
           <div class="card package-card reveal" data-category="ranks" data-product-id="prime-rank" data-product-title="Prime" data-product-price="1.5684" data-product-image="assets/images/ranks/Prime_6th.png" data-product-description="Start your journey with the Prime rank. Get essential perks and stand out from the crowd!" data-product-ingame="Prime prefix in chat, /fly command, /hat command, colored chat, and access to Prime-only areas." data-product-howto="Purchase the rank from our store. Once purchased, it will be automatically applied to your account in-game.">
             <img src="assets/images/ranks/Prime_6th.png" alt="Prime" class="package-img">
@@ -413,13 +403,12 @@
               <a href="./cart.html" class="btn-primary add-to-cart">Add to cart</a>
             </div>
           </div>
-
         </div>
       </main>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="section-divider" role="separator" aria-hidden="true"></div>
 
   <!-- FAQ -->
   <section class="faq" id="faq">
@@ -428,54 +417,72 @@
 
     <div class="faq-container">
       <div class="faq-item reveal">
-        <div class="faq-question">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span class="faq-question-text">How do I join on Java Edition?</span>
+          <div class="faq-icon" aria-hidden="true"></div>
+        </div>
+        <div class="faq-answer">
+          <p>Add the server IP <strong>play.eclipxmc.fun</strong> to your server list. Any Minecraft version can play.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span class="faq-question-text">How do I join on Bedrock Edition?</span>
+          <div class="faq-icon" aria-hidden="true"></div>
+        </div>
+        <div class="faq-answer">
+          <p>Use the same IP <strong>play.eclipxmc.fun</strong> on Bedrock Edition. The port is <strong>19132</strong> (default). Works on console, mobile, and Windows 10/11.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span class="faq-question-text">Is the server free to play?</span>
+          <div class="faq-icon" aria-hidden="true"></div>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! EclipxMC is completely free to join and play. The store offers optional ranks and perks that enhance your experience but are never required to enjoy the server.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span class="faq-question-text">How do I receive my rewards after voting?</span>
+          <div class="faq-icon" aria-hidden="true"></div>
+        </div>
+        <div class="faq-answer">
+          <p>After voting on any of the voting sites listed above, you will automatically receive your rewards in-game. You can vote once every 24 hours per site for maximum rewards.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
           <span class="faq-question-text">How do I purchase packages?</span>
-          <div class="faq-icon"></div>
+          <div class="faq-icon" aria-hidden="true"></div>
         </div>
         <div class="faq-answer">
-          <p>Simply click the "Visit Store" button at the top of the page. Browse our packages, add them to your cart, and proceed to checkout. Your purchase will be processed instantly!</p>
+          <p>Browse our store, add items to your cart, and proceed to checkout. You'll be redirected to our Discord server where our staff will assist you with payment and delivery.</p>
         </div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-question">
-          <span class="faq-question-text">When will my package be delivered?</span>
-          <div class="faq-icon"></div>
-        </div>
-        <div class="faq-answer">
-          <p>Most packages are delivered within seconds of purchase. If you don't receive your package immediately, please contact our support team via Discord.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-question">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
           <span class="faq-question-text">What payment methods do you accept?</span>
-          <div class="faq-icon"></div>
+          <div class="faq-icon" aria-hidden="true"></div>
         </div>
         <div class="faq-answer">
-          <p>We accept all major payment methods including credit/debit cards, PayPal, and other trusted processors.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-question">
-          <span class="faq-question-text">How do I join the server?</span>
-          <div class="faq-icon"></div>
-        </div>
-        <div class="faq-answer">
-          <p>Use the address above to connect — no special setup required.</p>
+          <p>We accept PayPal, UPI, INR, and USD. All transactions are processed securely through our Discord support system.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-left">
         <div class="footer-logo-wrapper">
-          <a href="#"><img src="assets/images/eclipxmc_logo.png" alt="EclipxMC" class="footer-logo"></a>
+          <a href="#" aria-label="Go to top"><img src="assets/images/eclipxmc_logo.png" alt="EclipxMC" class="footer-logo"></a>
         </div>
         <div class="footer-disclaimer">
-          <p>Copyright &copy; 2026. All Rights Reserved.</p>
-          <p>We are not affiliated with Mojang AB.</p>
+          <p>&copy; 2026 EclipxMC. All Rights Reserved.</p>
+          <p>Not affiliated with Mojang AB.</p>
         </div>
       </div>
       <div class="footer-center">
@@ -487,10 +494,9 @@
     </div>
   </footer>
 
-
   <!-- BACK TO TOP -->
-  <button id="backToTop" class="back-to-top" title="Back to Top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5 12 7-7 7 7"/></svg>
+  <button id="backToTop" class="back-to-top" type="button" title="Back to Top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m5 12 7-7 7 7"/></svg>
   </button>
 
   <script src="assets/js/script.js"></script>
