@@ -1,24 +1,24 @@
-# Minecraft Server Webstore/Website [Frontend]
+# EclipxMC — Minecraft Server Webstore & Landing Page
 
-Welcome to the web repository for this modern store frontend. This project is a polished landing page and shopping experience designed for Minecraft servers.
+Welcome to the EclipxMC webstore frontend — a polished landing page and shopping experience for the EclipxMC Minecraft server.
 
 ## :rocket: Features
 
-- **Spotlight Navigation:** A custom-engineered navbar with dynamic lighting effects that follow the mouse and highlight active sections.
-- **Immersive Hero Section:** Featuring animated particles, glow/hover effects, and a one-click "Copy IP" system.
-- **Interactive Store Preview:** A responsive sidebar-driven category system (Ranks, Epix Dust, Keys) with staggered fade-in animations and client-side routing.
+- **Spotlight Navigation:** Fixed navbar with dynamic spotlight glow and ambience effects that highlight the active section.
+- **Immersive Hero Section:** Animated particles, flip-fade subtitle, and one-click IP copy.
+- **Interactive Store Preview:** Sidebar-driven category system (Ranks, Epix Dust, Keys) with client-side routing.
 - **Visual Polish:**
-  - **Scroll Reveal:** Smooth intersection-based reveal animations as you scroll.
-  - **3D Card Tilt:** Subtle mouse-tracking tilt and glow effects on store packages and cards.
+  - **Gradient Glints:** Cards feature tinted gradient backgrounds with color-matched shimmer effects.
+  - **Glassmorphism:** Subtle semi-transparent surfaces with reduced blur for performance.
   - **Smooth Scrolling:** Seamless navigation between sections.
-- **Custom Branding:** Integrated custom fonts (Bricolage Grotesque & Epic Pro) and server-specific assets.
-- **Discord Checkout:** Customers add items to a local shopping cart and are redirected to your Discord server to complete purchases via a ticket system.
+- **Custom Branding:** Bricolage Grotesque & Epic Pro fonts, server-specific assets.
+- **Discord Checkout:** Local shopping cart redirects to Discord for manual ticket-based purchasing.
 
 ## :wrench: Tech Stack
 
 - **HTML5:** Semantic structure.
 - **CSS3:** Custom properties (variables), Flexbox, Grid, keyframe animations, and glassmorphism.
-- **Vanilla JavaScript:** Zero dependencies, modular initialization, high-performance DOM manipulation, and history-based SPA client routing.
+- **Vanilla JavaScript:** Zero dependencies, modular initialization, DOM manipulation, and history-based SPA client routing.
 - **Vercel Routing:** Configuration (`vercel.json`) to redirect store categories and pages back to `index.html` for clean client-side routing.
 
 ---
