@@ -473,10 +473,10 @@ function renderCartPage() {
 
   cartItemsContainer.innerHTML = items.map(item => `
     <article class="cart-item" data-product-id="${escapeHTML(item.id)}" data-category="${escapeHTML(item.category || '')}">
-      <img class="cart-item-img" src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">
+      ${item.category === 'ranks' ? '' : `<img class="cart-item-img" src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">`}
       <div class="cart-item-body">
         <div>
-          <strong class="cart-item-title">${escapeHTML(item.title)}</strong>
+          <strong class="cart-item-title">${escapeHTML(item.title)}${item.category === 'ranks' ? ' Rank' : ''}</strong>
           <div class="cart-item-meta">${escapeHTML(formatCurrency(item.price))} each</div>
         </div>
         <div class="cart-item-qty">
