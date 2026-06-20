@@ -131,6 +131,9 @@ const Router = {
       const href = anchor.getAttribute('href');
       if (!href) return;
 
+      // Skip add-to-cart buttons — they handle navigation themselves
+      if (anchor.classList.contains('add-to-cart')) return;
+
       // Handle sidebar links specially
       if (anchor.classList.contains('sidebar-link')) {
         e.preventDefault();
@@ -158,16 +161,19 @@ const Router = {
   },
 
   navigate(path) {
-    if (window.location.pathname === path) return;
+    // Strip index.html prefix if present (from href="/index.html#store")
+    const cleanPath = path.replace(/^\/?index\.html/, '') || '/';
+
+    if (window.location.pathname === cleanPath) return;
     
     // If we are on cart.html and want to go to a section on index.html
     if (window.location.pathname.includes('cart.html')) {
-      window.location.href = 'index.html' + (path === '/' ? '' : '#' + path.substring(1));
+      window.location.href = 'index.html' + (cleanPath === '/' ? '' : '#' + cleanPath.substring(1));
       return;
     }
 
-    window.history.pushState(null, '', path);
-    this.handleRoute(path);
+    window.history.pushState(null, '', cleanPath);
+    this.handleRoute(cleanPath);
   },
 
   handleRoute(path, hash = null) {
@@ -461,7 +467,11 @@ function renderCartPage() {
           <div class="cart-item-meta">${escapeHTML(formatCurrency(item.price))} each</div>
         </div>
         <div class="cart-item-qty">
-          Qty: ${item.quantity}
+          ${item.category === 'epix-dust' ? `
+            <button class="cart-qty-btn" data-action="decrease" type="button">−</button>
+            <span class="cart-qty-value">${item.quantity}</span>
+            <button class="cart-qty-btn" data-action="increase" type="button">+</button>
+          ` : `<span class="cart-qty-value">Qty: ${item.quantity}</span>`}
         </div>
       </div>
       <button class="cart-remove" type="button" data-action="remove">Remove</button>
@@ -475,6 +485,23 @@ function renderCartPage() {
   const countEl = document.getElementById('cart-count');
   if (subtotalEl) subtotalEl.textContent = formatCurrency(total);
   if (countEl) countEl.textContent = `${count} item${count === 1 ? '' : 's'}`;
+
+  const summaryDetails = document.querySelector('.summary-details');
+  if (summaryDetails) {
+    const existingBreakdown = summaryDetails.querySelector('.summary-breakdown');
+    if (existingBreakdown) existingBreakdown.remove();
+
+    const breakdownDiv = document.createElement('div');
+    breakdownDiv.className = 'summary-breakdown';
+    breakdownDiv.innerHTML = items.map(item => `
+      <div class="summary-item-row">
+        <span class="summary-item-name">${escapeHTML(item.title)}</span>
+        <span class="summary-item-qty">x${item.quantity}</span>
+        <span class="summary-item-total">${escapeHTML(formatCurrency(item.price * item.quantity))}</span>
+      </div>
+    `).join('');
+    summaryDetails.insertBefore(breakdownDiv, summaryDetails.querySelector('.subtotal'));
+  }
 }
 
 function removeCartItem(productId) {
@@ -501,6 +528,24 @@ function initCartPage() {
     if (!productId) return;
 
     if (action === 'remove') removeCartItem(productId);
+    else if (action === 'increase' || action === 'decrease') {
+      const cart = getCart();
+      if (!cart[productId]) return;
+      if (action === 'increase') cart[productId].quantity += 1;
+      else {
+        cart[productId].quantity -= 1;
+        if (cart[productId].quantity <= 0) {
+          delete cart[productId];
+          saveCart(cart);
+          renderCartPage();
+          updateCartBadge();
+          return;
+        }
+      }
+      saveCart(cart);
+      renderCartPage();
+      updateCartBadge();
+    }
   });
 
   const clearCartBtn = document.getElementById('clearCartBtn');
@@ -677,7 +722,7 @@ function switchStoreTab(el, category, updateUrl = true) {
     if (headerP) {
       if (category.includes('Ranks')) headerP.textContent = 'Get yourself some awesome ranks! All ranks purchased here will apply only in our gamemode.';
       else if (category.includes('Epix Dust')) headerP.textContent = 'Get yourself some Epix Dust to get awesome keys & perks from the Epix Dust shop.';
-      else if (category.includes('Keys')) headerP.textContent = 'Unlock powerful rewards with our custom crate keys. Each key provides a chance for rare items!';
+      else if (category.includes('Crates')) headerP.textContent = 'Unlock exclusive rewards with our premium crates. Each crate contains rare items and valuable loot!';
       else headerP.textContent = `Browse our selection of ${category} and enhance your gameplay!`;
     }
 

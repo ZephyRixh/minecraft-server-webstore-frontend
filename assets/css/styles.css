@@ -1186,10 +1186,42 @@ section { padding: 40px 5vw; position: relative; }
 }
 
 .cart-item-title {
-  font-family: var(--font-display);
+  font-family: var(--font);
   font-size: 16px;
   margin-bottom: 4px;
   display: block;
+}
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.cart-qty-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r-sm);
+  color: var(--text-2);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  transition: all 0.15s ease;
+}
+.cart-qty-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: var(--text);
+}
+.cart-qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .cart-item-meta {
@@ -1266,6 +1298,39 @@ section { padding: 40px 5vw; position: relative; }
 
 .summary-row.subtotal strong {
   color: var(--accent);
+}
+.summary-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 8px;
+}
+.summary-item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.summary-item-name {
+  flex: 1;
+  color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.summary-item-qty {
+  color: var(--text-3);
+  min-width: 24px;
+  text-align: right;
+}
+.summary-item-total {
+  color: var(--text);
+  font-weight: 600;
+  min-width: 60px;
+  text-align: right;
 }
 
 .summary-actions {
@@ -1597,6 +1662,9 @@ section { padding: 40px 5vw; position: relative; }
 
 .featured-card-ecliptix {
   background: linear-gradient(135deg, rgba(10, 10, 10, 0.65) 0%, rgba(74,20,140,0.12) 33%, rgba(25,118,210,0.08) 66%, rgba(230,81,0,0.06) 100%) !important;
+}
+.featured-card-oblivion {
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.65) 0%, rgba(109,74,255,0.15) 100%) !important;
 }
 
 .featured-card-info {
