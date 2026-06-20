@@ -829,6 +829,7 @@ background-position: calc(50% - 10px) center;
   color: var(--text-2);
   line-height: 1.7;
   font-size: 14px;
+  font-weight: 800;
 }
 
 /* ━━ FAQ ━━ */
@@ -1027,7 +1028,7 @@ background-position: calc(50% - 10px) center;
 .package-title {
   font-family: var(--font);
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 800;
   letter-spacing: 0.03em;
   margin-bottom: 4px;
   min-height: 45px;
@@ -1196,6 +1197,7 @@ background-position: calc(50% - 10px) center;
 .cart-item-title {
   font-family: var(--font);
   font-size: 16px;
+  font-weight: 800;
   margin-bottom: 4px;
   display: block;
 }
@@ -1746,6 +1748,7 @@ background-position: calc(50% - 10px) center;
   color: var(--text-2);
   line-height: 1.7;
   font-size: 14px;
+  font-weight: 800;
 }
 
 
