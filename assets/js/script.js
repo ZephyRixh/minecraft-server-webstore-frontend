@@ -457,7 +457,10 @@ function renderCartPage() {
   if (!cartItemsContainer) return;
 
   const cart = getCart();
-  const items = Object.values(cart);
+  const items = Object.values(cart).map(item => ({
+    ...item,
+    title: item.title.replace(/\s*\(LIFESTEAL\)/g, '').trim()
+  }));
 
   if (!items.length) {
     cartItemsContainer.innerHTML = `

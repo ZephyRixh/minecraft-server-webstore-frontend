@@ -1939,6 +1939,7 @@ background-position: calc(50% - 10px) center;
 
 .welcome-header {
   margin-bottom: 32px;
+  text-align: center;
 }
 .welcome-title {
   font-family: var(--font-display);
@@ -1947,11 +1948,15 @@ background-position: calc(50% - 10px) center;
   color: var(--text);
   letter-spacing: 1px;
 }
+.welcome-body {
+  text-align: center;
+}
 .welcome-body p {
   color: var(--text-2);
   line-height: 1.7;
   margin-bottom: 20px;
   font-size: 15px;
+  font-family: var(--font-display);
 }
 
 /* ━━ FOOTER ━━ */
