@@ -74,7 +74,7 @@ body {
 section {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+  transition: opacity 1s var(--ease-smooth), transform 1s var(--ease-smooth);
 }
 
 body.is-loaded section {
@@ -82,13 +82,11 @@ body.is-loaded section {
   transform: translateY(0);
 }
 
-body.is-loaded section:nth-of-type(1) { transition-delay: 0.2s; }
-body.is-loaded section:nth-of-type(2) { transition-delay: 0.3s; }
-body.is-loaded section:nth-of-type(3) { transition-delay: 0.4s; }
-body.is-loaded section:nth-of-type(4) { transition-delay: 0.5s; }
-body.is-loaded section:nth-of-type(5) { transition-delay: 0.6s; }
-body.is-loaded section:nth-of-type(6) { transition-delay: 0.7s; }
-body.is-loaded section:nth-of-type(7) { transition-delay: 0.8s; }
+body.is-loaded section:nth-of-type(1) { transition-delay: 0.4s; }
+body.is-loaded section:nth-of-type(2) { transition-delay: 0.6s; }
+body.is-loaded section:nth-of-type(3) { transition-delay: 0.8s; }
+body.is-loaded section:nth-of-type(4) { transition-delay: 1.0s; }
+body.is-loaded section:nth-of-type(5) { transition-delay: 1.2s; }
 
 body::before {
   content: '';
@@ -2032,19 +2030,10 @@ background-position: calc(50% - 10px) center;
 .footer-center { display: flex; gap: 24px; }
 .footer-link { font-size: 13px; color: var(--text-3); font-weight: 500; transition: color .25s ease; display: inline-flex; align-items: center; gap: 6px; }
 .footer-link:hover { color: var(--text); }
-.reveal.revealed {
-  animation: revealUp 0.8s var(--ease-smooth) both;
-}
-.reveal.revealed:nth-child(1) { animation-delay: 0s; }
-.reveal.revealed:nth-child(2) { animation-delay: 0.08s; }
-.reveal.revealed:nth-child(3) { animation-delay: 0.16s; }
-.reveal.revealed:nth-child(4) { animation-delay: 0.24s; }
-.reveal.revealed:nth-child(5) { animation-delay: 0.32s; }
-.reveal.revealed:nth-child(6) { animation-delay: 0.4s; }
-
-@keyframes revealUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 /* ━━ ANIMATED DOTS BACKGROUND ━━ */

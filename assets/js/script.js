@@ -898,40 +898,6 @@ function switchStoreTab(el, category, updateUrl = true) {
   });
 })();
 
-/* ━━ SMOOTH SCROLL (LENIS) ━━ */
-(function() {
-  const script = document.createElement('script');
-  script.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
-  script.onload = function() {
-    const lenis = new Lenis({ duration: 1.2, easing: function(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2 }, orientation: 'vertical', smoothWheel: true });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf) }
-    requestAnimationFrame(raf);
-    window.lenis = lenis;
-    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function(e) {
-        var id = this.getAttribute('href');
-        if (id === '#') return;
-        var target = document.querySelector(id);
-        if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -60 }) }
-      });
-    });
-  };
-  document.head.appendChild(script);
-})();
-
-/* ━━ SCROLL REVEAL ━━ */
-(function() {
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el) });
-})();
-
 window.addEventListener('pageshow', function(e) {
   if (e.persisted) location.reload();
 });
