@@ -1956,7 +1956,9 @@ background-position: calc(50% - 10px) center;
   line-height: 1.7;
   margin-bottom: 20px;
   font-size: 15px;
-  font-family: var(--font-display);
+  font-family: var(--font);
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 /* ━━ FOOTER ━━ */
