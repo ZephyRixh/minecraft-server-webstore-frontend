@@ -562,7 +562,7 @@ section { padding: 40px 5vw; position: relative; }
 @media (max-width: 768px) {
   .hero {
     background: url(../images/background.jpg) center/cover no-repeat;
-    background-position: calc(50% - 20px) center;
+background-position: calc(50% - 15px) center;
   }
 }
 .hero-content {
