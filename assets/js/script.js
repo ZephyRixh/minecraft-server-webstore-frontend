@@ -330,7 +330,16 @@ function initCurrencySwitcher() {
     currentCurrency = savedCurrency;
   }
 
-  currentLabel.textContent = currentCurrency;
+  function setCurrencyIcon(currency) {
+    const inrIcon = currentLabel.querySelector('.currency-icon-inr');
+    const usdIcon = currentLabel.querySelector('.currency-icon-usd');
+    const text = currentLabel.querySelector('.currency-text');
+    if (inrIcon) inrIcon.style.display = currency === 'INR' ? '' : 'none';
+    if (usdIcon) usdIcon.style.display = currency === 'USD' ? '' : 'none';
+    if (text) text.textContent = currency;
+  }
+
+  setCurrencyIcon(currentCurrency);
   options.forEach(opt => {
     opt.classList.toggle('active', opt.getAttribute('data-currency') === currentCurrency);
   });
@@ -349,7 +358,7 @@ function initCurrencySwitcher() {
       }
       currentCurrency = currency;
       localStorage.setItem('store_currency', currency);
-      currentLabel.textContent = currency;
+      setCurrencyIcon(currency);
       options.forEach(o => o.classList.toggle('active', o.getAttribute('data-currency') === currency));
       switcher.classList.remove('open');
       updateAllDisplayedPrices();

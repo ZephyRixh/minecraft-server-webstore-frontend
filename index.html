@@ -237,12 +237,16 @@
         <div class="store-filters reveal">
           <div class="currency-switcher store-currency-switcher" id="currencySwitcher">
             <button class="currency-switcher-btn" type="button" aria-label="Switch currency">
-              <span class="currency-switcher-current">INR</span>
+              <span class="currency-switcher-current">
+                <svg class="currency-icon currency-icon-inr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 5h-11h3a4 4 0 0 1 0 8h-3l6 6" /><path d="M7 9l11 0" /></svg>
+                <svg class="currency-icon currency-icon-usd" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg>
+                <span class="currency-text">INR</span>
+              </span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </button>
             <div class="currency-switcher-dropdown">
-              <button class="currency-option active" data-currency="INR" type="button">INR</button>
-              <button class="currency-option" data-currency="USD" type="button">USD</button>
+              <button class="currency-option active" data-currency="INR" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 5h-11h3a4 4 0 0 1 0 8h-3l6 6" /><path d="M7 9l11 0" /></svg> INR</button>
+              <button class="currency-option" data-currency="USD" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg> USD</button>
             </div>
           </div>
         </div>
@@ -460,21 +464,50 @@
 
   <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
-    <div class="footer-content">
-      <div class="footer-left">
-        <div class="footer-logo-wrapper">
-          <a href="#" aria-label="Go to top"><img src="assets/images/eclipxmc_logo.png" alt="EclipX MC" class="footer-logo"></a>
+    <div class="footer-inner">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div>
+            <h2>Ready to play?</h2>
+            <h3>Join EclipxMC today!</h3>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-brand">
+            <a href="#" aria-label="Go to top"><img src="assets/images/eclipxmc_logo.png" alt="EclipX MC" class="footer-logo"></a>
+            <div class="footer-socials">
+              <a href="https://dsc.gg/eclipxmc/" class="ti ti-brand-discord" target="_blank" rel="noopener" aria-label="Discord"></a>
+              <a href="#" class="ti ti-brand-x" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+              <a href="#" class="ti ti-brand-youtube" target="_blank" rel="noopener" aria-label="YouTube"></a>
+              <a href="#" class="ti ti-brand-instagram" target="_blank" rel="noopener" aria-label="Instagram"></a>
+            </div>
+          </div>
+          <nav class="footer-nav">
+            <ul>
+              <li><h4>NAVIGATION</h4></li>
+              <li><a href="#"><i class="ti ti-home"></i> Home</a></li>
+              <li><a href="#store"><i class="ti ti-shopping-cart"></i> Store</a></li>
+              <li><a href="#vote"><i class="ti ti-star"></i> Vote</a></li>
+              <li><a href="#faq"><i class="ti ti-question-mark"></i> FAQ</a></li>
+            </ul>
+            <ul>
+              <li><h4>RESOURCES</h4></li>
+              <li><a href="#policies"><i class="ti ti-file-text"></i> Terms of Service</a></li>
+              <li><a href="#policies"><i class="ti ti-shield"></i> Privacy Policy</a></li>
+              <li><a href="#policies"><i class="ti ti-rotate"></i> Refund Policy</a></li>
+            </ul>
+            <ul>
+              <li><h4>COMMUNITY</h4></li>
+              <li><a href="https://dsc.gg/eclipxmc/"><i class="ti ti-brand-discord"></i> Discord</a></li>
+              <li><a href="#vote"><i class="ti ti-star"></i> Vote Sites</a></li>
+              <li><a href="https://dsc.gg/eclipxmc/"><i class="ti ti-headset"></i> Support</a></li>
+            </ul>
+          </nav>
         </div>
         <div class="footer-disclaimer">
           <p>&copy; 2026 EclipX MC. All Rights Reserved.</p>
           <p>Not affiliated with Mojang AB.</p>
         </div>
-      </div>
-      <div class="footer-center">
-        <a href="#" class="footer-link"><i class="ti ti-home"></i> Home</a>
-        <a href="#store" class="footer-link"><i class="ti ti-shopping-cart"></i> Store</a>
-        <a href="#policies" class="footer-link"><i class="ti ti-file-text"></i> Policies</a>
-        <a href="https://dsc.gg/eclipxmc/" class="footer-link"><i class="ti ti-brand-discord"></i> Discord</a>
       </div>
     </div>
   </footer>
