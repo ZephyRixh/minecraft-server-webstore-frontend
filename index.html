@@ -42,16 +42,33 @@
     <nav class="spotlight-nav" id="spotlightNav" role="navigation" aria-label="Main navigation">
       <ul class="spotlight-nav-list">
         <li><a href="#" class="spotlight-link active" data-index="0"><i class="ti ti-home"></i> <span class="link-text">Home</span></a></li>
-        <li><a href="#store" class="spotlight-link" data-index="1"><i class="ti ti-shopping-cart"></i> <span class="link-text">Store</span></a></li>
+        <li><a href="/store" class="spotlight-link" data-index="1"><i class="ti ti-shopping-cart"></i> <span class="link-text">Store</span></a></li>
         <li><a href="#policies" class="spotlight-link" data-index="2"><i class="ti ti-file-text"></i> <span class="link-text">Policies</span></a></li>
-        <li><a href="cart.html" class="spotlight-link" data-index="3"><i class="ti ti-basket"></i> <span class="link-text">Cart</span> <span class="cart-badge-nav" aria-label="Cart items">0</span></a></li>
+        <li><a href="/cart" class="spotlight-link" data-index="3"><i class="ti ti-basket"></i> <span class="link-text">Cart</span> <span class="cart-badge-nav" aria-label="Cart items">0</span></a></li>
       </ul>
       <div class="spotlight-glow" id="spotlightGlow"></div>
       <div class="spotlight-ambience" id="spotlightAmbience"></div>
     </nav>
   </div>
 
-
+  <!-- MOBILE SIDEBAR -->
+  <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation">
+    <i class="ti ti-menu-2"></i>
+  </button>
+  <div class="mobile-sidebar-overlay"></div>
+  <aside class="mobile-sidebar">
+    <header>
+      <img src="assets/images/eclipxmc_logo.png" alt="Eclipx MC">
+      <span>Menu</span>
+      <button class="close-btn" type="button" aria-label="Close navigation"><i class="ti ti-x"></i></button>
+    </header>
+    <nav>
+      <a href="/" class="active"><i class="ti ti-home"></i> Home</a>
+      <a href="/store"><i class="ti ti-shopping-cart"></i> Store</a>
+      <a href="#policies"><i class="ti ti-file-text"></i> Policies</a>
+      <a href="/cart"><i class="ti ti-basket"></i> Cart</a>
+    </nav>
+  </aside>
 
   <!-- PRODUCT DETAIL MODAL -->
   <div id="productModal" class="modal">
@@ -92,7 +109,7 @@
       <img src="assets/images/eclipxmc_logo.png" alt="Eclipx MC Logo" class="hero-logo" />
       <p class="hero-subtitle flip-fade-wrap"></p>
       <div class="hero-cta">
-        <a href="#store" class="rg-button">
+        <a href="/store" class="rg-button">
           <span class="rg-shine"><span></span></span>
           <span class="rg-bg"></span>
           <span class="rg-label"><i class="ti ti-shopping-cart"></i> Visit Store</span>
@@ -210,195 +227,7 @@
     </div>
   </section>
 
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
 
-  <!-- STORE SECTION PREVIEW -->
-  <section class="store-section" id="store">
-    <h2 class="reveal section-title-uppercase">Store</h2>
-    <p class="section-sub reveal">Browse our packages and ranks</p>
-
-    <div class="store-container">
-      <aside class="store-sidebar reveal">
-        <div class="sidebar-header">SELECT A CATEGORY</div>
-        <nav class="sidebar-nav">
-          <div class="sidebar-indicator"></div>
-          <a href="/store/ranks" class="sidebar-link" data-category="Ranks" data-category-path="ranks">
-            <img src="assets/images/ranks.webp" alt="" class="sidebar-coin"> Ranks
-          </a>
-          <a href="/store/epix-dust" class="sidebar-link" data-category="Epix Dust" data-category-path="epix-dust">
-            <img src="assets/images/coin.png" alt="" class="sidebar-coin"> Epix Dust
-          </a>
-          <a href="/store/crates" class="sidebar-link" data-category="Crates" data-category-path="crates">
-            <i class="ti ti-key"></i> Crates
-          </a>
-        </nav>
-      </aside>
-
-      <main class="store-content">
-        <div class="store-filters reveal">
-          <div class="currency-switcher store-currency-switcher" id="currencySwitcher">
-            <button class="currency-switcher-btn" type="button" aria-label="Switch currency">
-              <span class="currency-switcher-current">
-                <svg class="currency-icon currency-icon-inr" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 5h-11h3a4 4 0 0 1 0 8h-3l6 6" /><path d="M7 9l11 0" /></svg>
-                <svg class="currency-icon currency-icon-usd" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg>
-                <span class="currency-text">INR</span>
-              </span>
-              <svg class="currency-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="currency-switcher-dropdown">
-              <button class="currency-option active" data-currency="INR" type="button"><svg class="currency-icon currency-option-svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 5h-11h3a4 4 0 0 1 0 8h-3l6 6" /><path d="M7 9l11 0" /></svg> INR</button>
-              <button class="currency-option" data-currency="USD" type="button"><svg class="currency-icon currency-option-svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg> USD</button>
-            </div>
-          </div>
-        </div>
-
-        <div id="featured-section" class="featured-packages-wrapper reveal">
-          <h3 class="featured-title">Featured Packages</h3>
-          <div class="featured-grid">
-            <div class="featured-card card featured-card-oblivion" data-featured-category="ranks" tabindex="0" role="button" aria-label="View Ranks">
-              <div class="featured-card-badge">Best Seller</div>
-              <div class="featured-card-info">
-                <h4>Oblivion</h4>
-                <p>Premium rank with exceptional value — powerful perks at an affordable price.</p>
-                <span class="featured-card-link">View Ranks <svg class="svg-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-              </div>
-            </div>
-            <div class="featured-card card featured-card-coin" data-featured-category="epix-dust" tabindex="0" role="button" aria-label="View Epix Dust">
-              <div class="featured-card-badge">Trending</div>
-              <div class="featured-card-info">
-                <h4>Epix Dust Bundles</h4>
-                <p>Get the best value on LifeSteal Epix Dust.</p>
-                <span class="featured-card-link">View Epix Dust <svg class="svg-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="store-content-header reveal" id="store-category-header">
-          <h1>Epix Dust [LifeSteal]</h1>
-          <p>Get yourself some Epix Dust to get awesome keys & perks from the Epix Dust shop.<br><br>Note: You will receive this Epix Dust in LifeSteal Gamemode</p>
-        </div>
-
-        <div class="package-grid">
-          <!-- Rank 1: Prime -->
-          <div class="card package-card reveal" data-category="ranks" data-product-id="prime-rank" data-product-title="Prime" data-product-price="1.5684" data-product-image="assets/images/ranks/Prime_6th.png" data-product-description="Start your journey with the Prime rank. Get essential perks and stand out from the crowd!" data-product-ingame="Prime prefix in chat, /fly command, /hat command, colored chat, and access to Prime-only areas." data-product-howto="Purchase the rank from our store. Once purchased, it will be automatically applied to your account in-game.">
-            <img src="assets/images/ranks/Prime_6th.png" alt="Prime" class="package-img">
-            <div class="package-title">Prime</div>
-            <div class="package-price">₹149</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Rank 2: Omega -->
-          <div class="card package-card reveal" data-category="ranks" data-product-id="omega-rank" data-product-title="Omega" data-product-price="3.1474" data-product-image="assets/images/ranks/Omega_5th.png" data-product-description="Level up with Omega. Unlock more commands and exclusive in-game perks!" data-product-ingame="Omega prefix in chat, all Prime perks plus: /nick command, /feed command, and access to Omega-only areas." data-product-howto="Purchase the rank from our store. Once purchased, it will be automatically applied to your account in-game.">
-            <img src="assets/images/ranks/Omega_5th.png" alt="Omega" class="package-img">
-            <div class="package-title">Omega</div>
-            <div class="package-price">₹299</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Rank 3: GlitchX -->
-          <div class="card package-card reveal" data-category="ranks" data-product-id="glitchx-rank" data-product-title="GlitchX" data-product-price="4.7263" data-product-image="assets/images/ranks/GlitchX_4th.png" data-product-description="GlitchX takes you further. Enhanced perks and priority access across the server!" data-product-ingame="GlitchX prefix in chat, all Omega perks plus: /heal command, /craft command, colored chat, and priority queue access." data-product-howto="Purchase the rank from our store. Once purchased, it will be automatically applied to your account in-game.">
-            <img src="assets/images/ranks/GlitchX_4th.png" alt="GlitchX" class="package-img">
-            <div class="package-title">GlitchX</div>
-            <div class="package-price">₹449</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Rank 4: Nexus -->
-          <div class="card package-card reveal" data-category="ranks" data-product-id="nexus-rank" data-product-title="Nexus" data-product-price="6.3053" data-product-image="assets/images/ranks/Nexus_3rd.png" data-product-description="The Nexus rank unlocks the full potential of your gameplay experience!" data-product-ingame="Nexus prefix in chat, all GlitchX perks plus: /echest command, /tpa command, special join message, and Nexus-only areas." data-product-howto="Purchase the rank from our store. Once purchased, it will be automatically applied to your account in-game.">
-            <img src="assets/images/ranks/Nexus_3rd.png" alt="Nexus" class="package-img">
-            <div class="package-title">Nexus</div>
-            <div class="package-price">₹599</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Rank 5: Oblivion -->
-          <div class="card package-card reveal" data-category="ranks" data-product-id="oblivion-rank" data-product-title="Oblivion" data-product-price="7.3579" data-product-image="assets/images/ranks/oblivion_2nd.png" data-product-description="Oblivion is for the elite. Near-complete access with top-tier commands and perks!" data-product-ingame="Oblivion prefix in chat, all Nexus perks plus: /fly speed, vanish access, and exclusive Oblivion-only zones." data-product-howto="Purchase the rank from our store. Once purchased, it will be automatically applied to your account in-game.">
-            <img src="assets/images/ranks/oblivion_2nd.png" alt="Oblivion" class="package-img">
-            <div class="package-title">Oblivion</div>
-            <div class="package-price">₹699</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Rank 6: EcliptiX -->
-          <div class="card package-card reveal" data-category="ranks" data-product-id="ecliptix-rank" data-product-title="EcliptiX" data-product-price="8.4105" data-product-image="assets/images/ranks/EcliptiX_1st.png" data-product-description="The ultimate EcliptiX rank. Everything the server has to offer — unlimited power!" data-product-ingame="EcliptiX prefix in chat, all Oblivion perks plus: every command unlocked, exclusive accessories, and highest priority queue." data-product-howto="Purchase the rank from our store. Once purchased, it will be automatically applied to your account in-game.">
-            <img src="assets/images/ranks/EcliptiX_1st.png" alt="EcliptiX" class="package-img">
-            <div class="package-title">EcliptiX</div>
-            <div class="package-price">₹799</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Epix Dust 1 -->
-          <div class="card package-card reveal" data-category="epix-dust" data-product-id="89-epix-dust" data-product-title="89 Epix Dust" data-product-price="0.5158" data-product-image="assets/images/coin.png" data-product-description="A small pack of 89 Epix Dust to get you started in the LifeSteal Epix Dust shop." data-product-ingame="89 Epix Dust currency added to your LifeSteal balance. Use Epix Dust in the in-game Epix Dust shop to purchase keys, crates, perks, and exclusive items." data-product-howto="Epix Dust is automatically added to your in-game balance upon purchase. Simply join the LifeSteal gamemode and open the Epix Dust shop to start spending!">
-            <img src="assets/images/coin.png" alt="" class="package-img-coin">
-            <div class="package-title">89 Epix Dust</div>
-            <div class="package-price">₹49</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Epix Dust 2 -->
-          <div class="card package-card reveal" data-category="epix-dust" data-product-id="189-epix-dust" data-product-title="189 Epix Dust" data-product-price="1.0421" data-product-image="assets/images/coin.png" data-product-description="A handy bundle of 189 Epix Dust for your LifeSteal needs." data-product-ingame="189 Epix Dust currency added to your LifeSteal balance. Use Epix Dust in the in-game Epix Dust shop to purchase keys, crates, perks, and exclusive items." data-product-howto="Epix Dust is automatically added to your in-game balance upon purchase. Simply join the LifeSteal gamemode and open the Epix Dust shop to start spending!">
-            <img src="assets/images/coin.png" alt="" class="package-img-coin">
-            <div class="package-title">189 Epix Dust</div>
-            <div class="package-price">₹99</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Epix Dust 3 -->
-          <div class="card package-card reveal" data-category="epix-dust" data-product-id="389-epix-dust" data-product-title="389 Epix Dust" data-product-price="2.0947" data-product-image="assets/images/coin.png" data-product-description="A solid amount of 389 Epix Dust — great value for regular players." data-product-ingame="389 Epix Dust currency added to your LifeSteal balance. Use Epix Dust in the in-game Epix Dust shop to purchase keys, crates, perks, and exclusive items." data-product-howto="Epix Dust is automatically added to your in-game balance upon purchase. Simply join the LifeSteal gamemode and open the Epix Dust shop to start spending!">
-            <img src="assets/images/coin.png" alt="" class="package-img-coin">
-            <div class="package-title">389 Epix Dust</div>
-            <div class="package-price">₹199</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Epix Dust 4 -->
-          <div class="card package-card reveal" data-category="epix-dust" data-product-id="799-epix-dust" data-product-title="799 Epix Dust" data-product-price="4.2" data-product-image="assets/images/coin.png" data-product-description="A large bundle of 799 Epix Dust for serious players." data-product-ingame="799 Epix Dust currency added to your LifeSteal balance. Use Epix Dust in the in-game Epix Dust shop to purchase keys, crates, perks, and exclusive items." data-product-howto="Epix Dust is automatically added to your in-game balance upon purchase. Simply join the LifeSteal gamemode and open the Epix Dust shop to start spending!">
-            <img src="assets/images/coin.png" alt="" class="package-img-coin">
-            <div class="package-title">799 Epix Dust</div>
-            <div class="package-price">₹399</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Epix Dust 5 -->
-          <div class="card package-card reveal" data-category="epix-dust" data-product-id="1699-epix-dust-bonus" data-product-title="1699+279 Bonus Epix Dust" data-product-price="8.4105" data-product-image="assets/images/coin.png" data-product-description="1,699 Epix Dust + 279 bonus free! The ultimate pack for the best value." data-product-ingame="1,699 + 279 bonus = 1,978 Epix Dust currency added to your LifeSteal balance. Use Epix Dust in the in-game Epix Dust shop to purchase keys, crates, perks, and exclusive items." data-product-howto="Epix Dust is automatically added to your in-game balance upon purchase. Simply join the LifeSteal gamemode and open the Epix Dust shop to start spending!">
-            <img src="assets/images/coin.png" alt="" class="package-img-coin">
-            <div class="package-title">1699+279 Bonus Epix Dust</div>
-            <div class="package-price">₹799</div>
-            <div class="package-actions">
-              <a href="/cart.html" class="btn-primary add-to-cart">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- Key 1: Legendary Crate Key -->
-
-          <!-- Key 2: Mythic Crate Key -->
-        </div>
-      </main>
-    </div>
-  </section>
-
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
 
   <!-- FAQ -->
   <section class="faq" id="faq">
@@ -487,7 +316,7 @@
             <ul>
               <li><h4>NAVIGATION</h4></li>
               <li><a href="#"><i class="ti ti-home"></i> Home</a></li>
-              <li><a href="#store"><i class="ti ti-shopping-cart"></i> Store</a></li>
+              <li><a href="/store"><i class="ti ti-shopping-cart"></i> Store</a></li>
               <li><a href="#vote"><i class="ti ti-star"></i> Vote</a></li>
               <li><a href="#faq"><i class="ti ti-question-mark"></i> FAQ</a></li>
             </ul>

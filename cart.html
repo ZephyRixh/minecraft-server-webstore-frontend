@@ -33,15 +33,34 @@
   <div class="spotlight-nav-wrapper">
     <nav class="spotlight-nav" id="spotlightNav">
       <ul class="spotlight-nav-list">
-        <li><a href="/index.html#" class="spotlight-link" data-index="0"><i class="ti ti-home"></i> <span class="link-text">Home</span></a></li>
-        <li><a href="/index.html#store" class="spotlight-link" data-index="1"><i class="ti ti-shopping-cart"></i> <span class="link-text">Store</span></a></li>
-        <li><a href="/index.html#policies" class="spotlight-link" data-index="2"><i class="ti ti-file-text"></i> <span class="link-text">Policies</span></a></li>
-        <li><a href="cart.html" class="spotlight-link active" data-index="3"><i class="ti ti-basket"></i> <span class="link-text">Cart</span> <span class="cart-badge-nav" aria-label="Cart items">0</span></a></li>
+        <li><a href="/" class="spotlight-link" data-index="0"><i class="ti ti-home"></i> <span class="link-text">Home</span></a></li>
+        <li><a href="/store" class="spotlight-link" data-index="1"><i class="ti ti-shopping-cart"></i> <span class="link-text">Store</span></a></li>
+        <li><a href="/policies" class="spotlight-link" data-index="2"><i class="ti ti-file-text"></i> <span class="link-text">Policies</span></a></li>
+        <li><a href="/cart" class="spotlight-link active" data-index="3"><i class="ti ti-basket"></i> <span class="link-text">Cart</span> <span class="cart-badge-nav" aria-label="Cart items">0</span></a></li>
       </ul>
       <div class="spotlight-glow" id="spotlightGlow"></div>
       <div class="spotlight-ambience" id="spotlightAmbience"></div>
     </nav>
   </div>
+
+  <!-- MOBILE SIDEBAR -->
+  <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation">
+    <i class="ti ti-menu-2"></i>
+  </button>
+  <div class="mobile-sidebar-overlay"></div>
+  <aside class="mobile-sidebar">
+    <header>
+      <img src="assets/images/eclipxmc_logo.png" alt="Eclipx MC">
+      <span>Menu</span>
+      <button class="close-btn" type="button" aria-label="Close navigation"><i class="ti ti-x"></i></button>
+    </header>
+    <nav>
+      <a href="/"><i class="ti ti-home"></i> Home</a>
+      <a href="/store"><i class="ti ti-shopping-cart"></i> Store</a>
+      <a href="/policies"><i class="ti ti-file-text"></i> Policies</a>
+      <a href="/cart" class="active"><i class="ti ti-basket"></i> Cart</a>
+    </nav>
+  </aside>
 
 <!-- CLEAR CART MODAL -->
   <div id="clearCartModal" class="modal">
@@ -121,7 +140,7 @@
                     <button id="checkoutBtn" class="btn-primary btn-block">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" fill="currentColor" width="16" height="12"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg> Proceed to Checkout
                     </button>
-                    <a href="/index.html#store" class="btn-outline btn-block text-center">
+                    <a href="/store" class="btn-outline btn-block text-center">
                         <i class="ti ti-arrow-left"></i> Continue Shopping
                     </a>
                 </div>
@@ -153,7 +172,7 @@
         </div>
         <div class="footer-bottom">
           <div class="footer-brand">
-            <a href="/index.html#" aria-label="Go to top"><img src="assets/images/eclipxmc_logo.png" alt="EclipX MC" class="footer-logo"></a>
+            <a href="/" aria-label="Go to top"><img src="assets/images/eclipxmc_logo.png" alt="EclipX MC" class="footer-logo"></a>
             <div class="footer-socials">
               <a href="https://dsc.gg/eclipxmc/" class="ti ti-brand-discord" target="_blank" rel="noopener" aria-label="Discord"></a>
               <a href="#" class="ti ti-brand-x" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
@@ -164,21 +183,21 @@
           <nav class="footer-nav">
             <ul>
               <li><h4>NAVIGATION</h4></li>
-              <li><a href="/index.html#"><i class="ti ti-home"></i> Home</a></li>
-              <li><a href="/index.html#store"><i class="ti ti-shopping-cart"></i> Store</a></li>
-              <li><a href="/index.html#vote"><i class="ti ti-star"></i> Vote</a></li>
-              <li><a href="/index.html#faq"><i class="ti ti-question-mark"></i> FAQ</a></li>
+              <li><a href="/"><i class="ti ti-home"></i> Home</a></li>
+              <li><a href="/store"><i class="ti ti-shopping-cart"></i> Store</a></li>
+              <li><a href="/vote"><i class="ti ti-star"></i> Vote</a></li>
+              <li><a href="/faq"><i class="ti ti-question-mark"></i> FAQ</a></li>
             </ul>
             <ul>
               <li><h4>RESOURCES</h4></li>
-              <li><a href="/index.html#policies"><i class="ti ti-file-text"></i> Terms of Service</a></li>
-              <li><a href="/index.html#policies"><i class="ti ti-shield"></i> Privacy Policy</a></li>
-              <li><a href="/index.html#policies"><i class="ti ti-rotate"></i> Refund Policy</a></li>
+              <li><a href="/policies"><i class="ti ti-file-text"></i> Terms of Service</a></li>
+              <li><a href="/policies"><i class="ti ti-shield"></i> Privacy Policy</a></li>
+              <li><a href="/policies"><i class="ti ti-rotate"></i> Refund Policy</a></li>
             </ul>
             <ul>
               <li><h4>COMMUNITY</h4></li>
               <li><a href="https://dsc.gg/eclipxmc/"><i class="ti ti-brand-discord"></i> Discord</a></li>
-              <li><a href="/index.html#vote"><i class="ti ti-star"></i> Vote Sites</a></li>
+              <li><a href="/vote"><i class="ti ti-star"></i> Vote Sites</a></li>
               <li><a href="https://dsc.gg/eclipxmc/"><i class="ti ti-headset"></i> Support</a></li>
             </ul>
           </nav>

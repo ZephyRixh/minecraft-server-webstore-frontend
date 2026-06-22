@@ -159,14 +159,15 @@ const Router = {
   },
 
   navigate(path) {
-    // Strip index.html prefix if present (from href="/index.html#store")
     const cleanPath = path.replace(/^\/?index\.html/, '') || '/';
 
     if (window.location.pathname === cleanPath) return;
-    
-    // If we are on cart.html and want to go to a section on index.html
-    if (window.location.pathname.includes('cart.html')) {
-      window.location.href = 'index.html' + (cleanPath === '/' ? '' : '#' + cleanPath.substring(1));
+
+    const currentRoot = window.location.pathname.split('/')[1] || '';
+    const targetRoot = cleanPath.split('/')[1] || '';
+
+    if (currentRoot !== targetRoot) {
+      window.location.href = cleanPath;
       return;
     }
 
@@ -228,12 +229,13 @@ const Router = {
     links.forEach(link => {
       const href = link.getAttribute('href');
       let targetPath;
-      if (href.includes('#')) {
+      if (href === '#') {
+        targetPath = '/';
+      } else if (href.includes('#')) {
         targetPath = '/' + href.substring(href.indexOf('#') + 1);
       } else {
-        targetPath = '/';
+        targetPath = href;
       }
-      
       const isActive = path === targetPath;
       link.classList.toggle('active', isActive);
       if (isActive) {
@@ -765,6 +767,32 @@ function initScrollReveal() {
   revealEls.forEach(el => observer.observe(el));
 }
 
+// ━━ MOBILE SIDEBAR ━━
+function initMobileSidebar() {
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const sidebar = document.querySelector('.mobile-sidebar');
+  const overlay = document.querySelector('.mobile-sidebar-overlay');
+  if (!toggle || !sidebar || !overlay) return;
+
+  const closeBtn = sidebar.querySelector('.close-btn');
+  const links = sidebar.querySelectorAll('nav a');
+
+  function open() {
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+  }
+
+  function close() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  }
+
+  toggle.addEventListener('click', open);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  links.forEach(link => link.addEventListener('click', close));
+}
+
 // INIT
 document.addEventListener('DOMContentLoaded', () => {
   initFAQAccordion();
@@ -778,6 +806,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCurrencySwitcher();
   initPlayerCount();
   initScrollReveal();
+  initMobileSidebar();
   updateAllDisplayedPrices();
 });
 
