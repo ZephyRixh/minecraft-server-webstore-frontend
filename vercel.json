@@ -5,6 +5,7 @@
     { "source": "/store", "destination": "/store.html" },
     { "source": "/policies", "destination": "/index.html" },
     { "source": "/faq", "destination": "/index.html" },
-    { "source": "/vote", "destination": "/index.html" }
+    { "source": "/vote", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

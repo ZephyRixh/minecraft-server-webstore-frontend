@@ -347,56 +347,71 @@ function formatCurrency(amount) {
 }
 
 function initCurrencySwitcher() {
-  const switcher = document.getElementById('currencySwitcher');
-  if (!switcher) return;
-
-  const btn = switcher.querySelector('.currency-switcher-btn');
-  const currentLabel = switcher.querySelector('.currency-switcher-current');
-  const options = switcher.querySelectorAll('.currency-option');
+  const switchers = document.querySelectorAll('.currency-switcher');
+  if (!switchers.length) return;
 
   const savedCurrency = localStorage.getItem('store_currency');
   if (savedCurrency && (savedCurrency === 'USD' || savedCurrency === 'INR')) {
     currentCurrency = savedCurrency;
   }
 
-  function setCurrencyIcon(currency) {
-    const inrIcon = currentLabel.querySelector('.currency-icon-inr');
-    const usdIcon = currentLabel.querySelector('.currency-icon-usd');
-    const text = currentLabel.querySelector('.currency-text');
-    if (inrIcon) inrIcon.style.display = currency === 'INR' ? '' : 'none';
-    if (usdIcon) usdIcon.style.display = currency === 'USD' ? '' : 'none';
-    if (text) text.textContent = currency;
+  function closeAll() {
+    switchers.forEach(s => s.classList.remove('open'));
   }
 
-  setCurrencyIcon(currentCurrency);
-  options.forEach(opt => {
-    opt.classList.toggle('active', opt.getAttribute('data-currency') === currentCurrency);
-  });
+  function syncAll(currency) {
+    switchers.forEach(s => {
+      const label = s.querySelector('.currency-switcher-current');
+      const opts = s.querySelectorAll('.currency-option');
+      const inrIcon = label.querySelector('.currency-icon-inr');
+      const usdIcon = label.querySelector('.currency-icon-usd');
+      const text = label.querySelector('.currency-text');
+      if (inrIcon) inrIcon.style.display = currency === 'INR' ? '' : 'none';
+      if (usdIcon) usdIcon.style.display = currency === 'USD' ? '' : 'none';
+      if (text) text.textContent = currency;
+      opts.forEach(o => o.classList.toggle('active', o.getAttribute('data-currency') === currency));
+    });
+  }
 
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    switcher.classList.toggle('open');
-  });
+  switchers.forEach(switcher => {
+    const btn = switcher.querySelector('.currency-switcher-btn');
+    const currentLabel = switcher.querySelector('.currency-switcher-current');
+    const options = switcher.querySelectorAll('.currency-option');
 
-  options.forEach(opt => {
-    opt.addEventListener('click', () => {
-      const currency = opt.getAttribute('data-currency');
-      if (currency === currentCurrency) {
-        switcher.classList.remove('open');
-        return;
-      }
-      currentCurrency = currency;
-      localStorage.setItem('store_currency', currency);
-      setCurrencyIcon(currency);
-      options.forEach(o => o.classList.toggle('active', o.getAttribute('data-currency') === currency));
-      switcher.classList.remove('open');
-      updateAllDisplayedPrices();
+    function setCurrencyIcon(currency) {
+      const inrIcon = currentLabel.querySelector('.currency-icon-inr');
+      const usdIcon = currentLabel.querySelector('.currency-icon-usd');
+      const text = currentLabel.querySelector('.currency-text');
+      if (inrIcon) inrIcon.style.display = currency === 'INR' ? '' : 'none';
+      if (usdIcon) usdIcon.style.display = currency === 'USD' ? '' : 'none';
+      if (text) text.textContent = currency;
+    }
+
+    setCurrencyIcon(currentCurrency);
+    options.forEach(opt => {
+      opt.classList.toggle('active', opt.getAttribute('data-currency') === currentCurrency);
+    });
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAll();
+      switcher.classList.add('open');
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        const currency = opt.getAttribute('data-currency');
+        closeAll();
+        if (currency === currentCurrency) return;
+        currentCurrency = currency;
+        localStorage.setItem('store_currency', currency);
+        syncAll(currency);
+        updateAllDisplayedPrices();
+      });
     });
   });
 
-  document.addEventListener('click', () => {
-    switcher.classList.remove('open');
-  });
+  document.addEventListener('click', closeAll);
 }
 
 function updateAllDisplayedPrices() {

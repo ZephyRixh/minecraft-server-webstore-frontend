@@ -2784,6 +2784,13 @@ section { padding: 40px 5vw; position: relative; }
   stroke-linejoin: round;
 }
 
+.fa-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 @media (max-width: 768px) {
   .currency-switcher-btn {
     padding: 5px 10px;
@@ -3580,6 +3587,29 @@ section { padding: 40px 5vw; position: relative; }
 
   .mobile-nav-bar {
     display: flex;
+  }
+
+  .desktop-currency-switcher {
+    display: none;
+  }
+
+  .mobile-nav-bar .currency-switcher-btn {
+    background: none;
+    border: none;
+    padding: 4px 6px;
+    min-width: auto;
+  }
+
+  .mobile-nav-bar .currency-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .mobile-nav-bar .currency-switcher-dropdown {
+    bottom: auto;
+    top: calc(100% + 8px);
+    right: 0;
+    left: auto;
   }
 
   .mobile-sidebar-overlay {
