@@ -780,11 +780,13 @@ function initMobileSidebar() {
   function open() {
     sidebar.classList.add('open');
     overlay.classList.add('open');
+    toggle.classList.add('hidden');
   }
 
   function close() {
     sidebar.classList.remove('open');
     overlay.classList.remove('open');
+    toggle.classList.remove('hidden');
   }
 
   toggle.addEventListener('click', open);
