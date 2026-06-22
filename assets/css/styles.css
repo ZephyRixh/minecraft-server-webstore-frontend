@@ -925,12 +925,20 @@ section { padding: 40px 5vw; position: relative; }
   background: var(--accent);
 }
 .faq-answer {
-  max-height: 0; overflow: hidden;
-  transition: max-height .4s var(--ease-smooth), padding .3s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .4s var(--ease-smooth);
   color: var(--text-2); padding: 0 22px;
   font-size: 14px; line-height: 1.7;
 }
-.faq-item.active .faq-answer { max-height: 300px; padding: 0 22px 18px; }
+.faq-answer > * {
+  overflow: hidden;
+  min-height: 0;
+}
+.faq-item.active .faq-answer {
+  grid-template-rows: 1fr;
+  padding: 0 22px 18px;
+}
 
 /* ━━ STORE LAYOUT ━━ */
 .store-section {
