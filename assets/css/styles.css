@@ -3420,6 +3420,49 @@ section { padding: 40px 5vw; position: relative; }
   font-size: 22px;
 }
 
+.mobile-cart-btn {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1001;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+}
+
+.mobile-cart-btn i {
+  font-size: 22px;
+}
+
+.mobile-cart-badge {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.hero .mobile-nav-toggle,
+.hero .mobile-cart-btn {
+  position: absolute;
+}
+
 .mobile-sidebar-overlay {
   display: none;
   position: fixed;
@@ -3534,6 +3577,10 @@ section { padding: 40px 5vw; position: relative; }
   }
 
   .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .mobile-cart-btn {
     display: flex;
   }
 

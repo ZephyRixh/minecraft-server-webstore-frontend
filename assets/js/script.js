@@ -466,12 +466,14 @@ function addToCart(product, quantity = 1, replace = false) {
 }
 
 function updateCartBadge() {
-  const badge = document.querySelector('.cart-badge-nav');
-  if (!badge) return;
+  const badges = document.querySelectorAll('.cart-badge-nav, .mobile-cart-badge');
+  if (!badges.length) return;
   const cart = getCart();
   const count = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
-  badge.textContent = count;
-  badge.style.display = count > 0 ? 'inline-flex' : 'none';
+  badges.forEach(badge => {
+    badge.textContent = count;
+    badge.style.display = count > 0 ? 'inline-flex' : 'none';
+  });
 }
 
 function initCartButtons() {
