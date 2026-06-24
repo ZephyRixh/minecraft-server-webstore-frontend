@@ -3642,6 +3642,8 @@ section { padding: 40px 5vw; position: relative; }
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .mobile-nav-toggle {
@@ -3889,6 +3891,12 @@ section { padding: 40px 5vw; position: relative; }
   text-align: center;
 }
 
+.mobile-sidebar-sub a img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
 .mobile-sidebar-sub a:hover {
   background: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.9);
@@ -4064,5 +4072,78 @@ section { padding: 40px 5vw; position: relative; }
     background-size: cover;
     background-position: center;
   }
+}
+
+/* ━━ MAINTENANCE POPUP ━━ */
+.maintenance-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.maintenance-modal {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 24px 14px 28px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  animation: maintenanceFadeIn 0.5s ease;
+}
+
+@keyframes maintenanceFadeIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.maintenance-image {
+  width: 180px;
+  height: 140px;
+  margin: 0 auto 8px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.maintenance-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  margin-top: -40px;
+  border-radius: 16px;
+}
+
+.maintenance-modal h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+.maintenance-modal p {
+  font-size: 14px;
+  color: var(--text-2);
+  margin: 0;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.infinity-symbol {
+  font-size: 22px;
+  color: var(--accent, #fbbf24);
+  line-height: 1;
 }
 
