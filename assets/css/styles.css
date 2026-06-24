@@ -581,7 +581,7 @@ section { padding: 40px 5vw; position: relative; }
     background-position: center center;
   }
   .welcome-section {
-    background-position: center center;
+    background: url(../images/background2.jpg) center/cover no-repeat;
   }
 }
 .hero-content {
