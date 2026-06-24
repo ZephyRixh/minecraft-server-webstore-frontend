@@ -590,15 +590,13 @@ section { padding: 40px 5vw; position: relative; }
     background-position: center center;
   }
   .hero::before {
-    clip-path: inset(60px 0 0 0);
+    clip-path: none;
   }
   .welcome-section {
     background-size: cover;
     background-position: center center;
   }
-  .welcome-section::before {
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.6) 60px);
-  }
+
   .welcome-section::after {
     height: 60px;
   }
@@ -2306,7 +2304,7 @@ section { padding: 40px 5vw; position: relative; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5) 100px);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.25) 70%, transparent 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -3559,20 +3557,6 @@ section { padding: 40px 5vw; position: relative; }
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  padding: 4px 8px;
-  height: 48px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(20, 20, 28, 0.85);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-}
-
-@supports (backdrop-filter: blur(1px)) {
-  .mobile-nav-bar {
-    background: rgba(20, 20, 28, 0.65);
-    backdrop-filter: blur(16px) saturate(1.2);
-    -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  }
 }
 
 .mobile-nav-toggle {
