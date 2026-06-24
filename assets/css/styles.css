@@ -590,7 +590,7 @@ section { padding: 40px 5vw; position: relative; }
     background-position: center center;
   }
   .hero::before {
-    clip-path: inset(60px 0 0 0);
+    background: linear-gradient(to bottom, transparent 0px, transparent 50px, rgba(0,0,0,0.5) 65px, rgba(0,0,0,0.5) calc(100% - 100px), transparent);
   }
   .welcome-section {
     background-size: cover;
